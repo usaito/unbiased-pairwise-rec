@@ -33,7 +33,7 @@ To run the experiment, download the Yahoo! R3 dataset from (https://webscope.san
 $ sh run.sh
 ```
 
-This will run the main experiments with the Yahoo data reported in Section 5 of the paper.
+This will run the main experiments with the Yahoo data reported in Section 4 of the paper.
 
 You can see the default experimental settings in the `run.sh` file.
 The tuned hyper-parameters can be found in `logs/*/yahoo/tuning` directory.
