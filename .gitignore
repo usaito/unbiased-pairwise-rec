@@ -128,12 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# mlflow files
-mlruns/
-
-# log files
+# additionals
+.DS_Store
 *.csv
 *.npy
 *.ipynb
 *.md
-/data
+data/
+logs/

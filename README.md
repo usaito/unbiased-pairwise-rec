@@ -1,50 +1,66 @@
-## Unbiased Pairwise Learning from Implicit Feedback
+## Unbiased Pairwise Learning from Biased Implicit Feedback
 
 ---
 
 ### About
 
-This repository accompanies the real-world experiments conducted in the paper "Unbiased Pairwise Learning from Implicit Feedback".
+This repository accompanies the real-world experiments conducted in the paper "**Unbiased Pairwise Learning from Biased Implicit Feedback.**" by [Yuta Saito](https://usaito.github.io/), which has been accepted by [ICTIR'20](https://ictir2020.org/).
 
-<!--
-which has been accepted to []().
+<!-- If you find this code useful in your research then please cite:
 
-If you find this code useful in your research then please cite:
 ```
 @
-```
--->
+``` -->
+
 
 ### Dependencies
 
-- numpy==1.16.2
-- pandas==0.24.2
-- scikit-learn==0.20.3
-- tensorflow==1.14.0
+- python>=3.7
+- numpy==1.18.1
+- pandas==0.25.1
+- scikit-learn==0.23.1
+- tensorflow==1.15.2
 - plotly==3.10.0
-- optuna==0.19.0
-- mlflow==1.3.0
+- pyyaml==5.1.2
+
+### Datasets
+To run the simulation with real-world datasets, the following datasets need to be prepared as described below.
+
+- download the [Yahoo! R3 dataset](https://webscope.sandbox.yahoo.com/catalog.php?datatype=r) and put `train.txt` and `test.txt` files into `./data/yahoo/raw/` directory.
+- download the [Coat dataset](https://www.cs.cornell.edu/~schnabts/mnar/) and put `train.ascii` and `test.ascii` files into `./data/coat/raw/` directory.
 
 ### Running the code
 
-To run the experiment, download the Yahoo! R3 dataset from (https://webscope.sandbox.yahoo.com/catalog.php?datatype=r) and put `train.txt` and `test.txt` files into `data/yahoo/` directory. Then, run the below command in `src` directory
+First, to run preprocess the real-world datasets, navigate to the `src/` directory and run the command
 
-```
-$ sh run.sh
-```
-
-This will run the main experiments with the Yahoo data reported in Section 4 of the paper.
-
-You can see the default experimental settings in the `run.sh` file.
-The tuned hyper-parameters can be found in `logs/*/yahoo/tuning` directory.
-These default experimental parameters are actually used in our experiments.
-
-Once the code is finished executing, you can view the run's metrics and parameters by running the command
-
-```
-$ mlflow ui
+```bash
+python preprocess_datasets.py -d coat yahoo
 ```
 
-and navigating to [http://localhost:5000](http://localhost:5000).
+Then, run the following in the same directory
 
-The experimental results can also be found in the `logs/*/yahoo/results/` directory.
+```bash
+for data in yahoo coat
+  do
+  for model in itempop wmf expomf crmf bpr ubpr
+  do
+    python main.py -m $model -d $data -r 10
+  done
+done
+```
+
+This will run real-world experiments conducted in Section 4.
+After running the experimens, you can visualize the results by running the following command in the `src/` directory.
+Note that all the experimental parameters used in our experiments can be found in the `conf/config.yaml` file.
+
+```bash
+python summarize_results.py -d yahoo coat
+```
+
+Once the code is finished executing, you can find the summarized results in `./paper_results/` directory.
+
+
+### Acknowledgement
+
+We thank [Minato Sato](https://github.com/satopirka) for his helpful comments, discussions, and advice.
+
