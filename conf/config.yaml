@@ -1,4 +1,3 @@
 eta: 0.001
 batch_size: 256
-max_iters: 1001
-n_trials: 10
+max_iters: 10

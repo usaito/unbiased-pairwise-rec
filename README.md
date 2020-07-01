@@ -4,7 +4,7 @@
 
 ### About
 
-This repository accompanies the real-world experiments conducted in the paper "**Unbiased Pairwise Learning from Biased Implicit Feedback.**" by [Yuta Saito](https://usaito.github.io/), which has been accepted by [ICTIR'20](https://ictir2020.org/).
+This repository accompanies the real-world experiments conducted in the paper "**Unbiased Pairwise Learning from Biased Implicit Feedback**" by [Yuta Saito](https://usaito.github.io/), which has been accepted by [ICTIR'20](https://ictir2020.org/).
 
 <!-- If you find this code useful in your research then please cite:
 
@@ -42,7 +42,7 @@ Then, run the following in the same directory
 ```bash
 for data in yahoo coat
   do
-  for model in itempop wmf expomf crmf bpr ubpr
+  for model in wmf expomf crmf bpr ubpr
   do
     python main.py -m $model -d $data -r 10
   done
