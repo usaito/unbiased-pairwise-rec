@@ -2,5 +2,4 @@ numpy==1.18.1
 pandas==0.25.1
 scikit-learn==0.23.1
 tensorflow==1.15.2
-plotly==3.10.0
 pyyaml==5.1.2

@@ -20,7 +20,6 @@ This repository accompanies the real-world experiments conducted in the paper "*
 - pandas==0.25.1
 - scikit-learn==0.23.1
 - tensorflow==1.15.2
-- plotly==3.10.0
 - pyyaml==5.1.2
 
 ### Datasets
@@ -31,13 +30,13 @@ To run the simulation with real-world datasets, the following datasets need to b
 
 ### Running the code
 
-First, to run preprocess the real-world datasets, navigate to the `src/` directory and run the command
+First, to preprocess the datasets, navigate to the `src/` directory and run the command
 
 ```bash
 python preprocess_datasets.py -d coat yahoo
 ```
 
-Then, run the following in the same directory
+Then, run the following command in the same directory
 
 ```bash
 for data in yahoo coat
@@ -50,8 +49,7 @@ done
 ```
 
 This will run real-world experiments conducted in Section 4.
-After running the experimens, you can visualize the results by running the following command in the `src/` directory.
-Note that all the experimental parameters used in our experiments can be found in the `conf/config.yaml` file.
+After running the experimens, you can summarize the results by running the following command in the `src/` directory.
 
 ```bash
 python summarize_results.py -d yahoo coat
