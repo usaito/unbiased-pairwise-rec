@@ -15,7 +15,7 @@ This repository accompanies the real-world experiments conducted in the paper "*
 
 ### Dependencies
 
-- python>=3.7
+- python == 3.7.x
 - numpy==1.18.1
 - pandas==0.25.1
 - scikit-learn==0.23.1
