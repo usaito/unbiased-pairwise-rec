@@ -15,7 +15,7 @@ This repository accompanies the real-world experiments conducted in the paper "*
 
 ### Dependencies
 
-- python>=3.7
+- python == 3.7.x
 - numpy==1.18.1
 - pandas==0.25.1
 - scikit-learn==0.23.1
@@ -41,7 +41,7 @@ Then, run the following command in the same directory
 ```bash
 for data in yahoo coat
   do
-  for model in wmf expomf crmf bpr ubpr
+  for model in wmf expomf relmf bpr ubpr
   do
     python main.py -m $model -d $data -r 10
   done
