@@ -41,7 +41,7 @@ Then, run the following command in the same directory
 ```bash
 for data in yahoo coat
   do
-  for model in wmf expomf crmf bpr ubpr
+  for model in wmf expomf relmf bpr ubpr
   do
     python main.py -m $model -d $data -r 10
   done
